@@ -1,0 +1,212 @@
+1. Selects the names of all products that are not on sale.
+
+sqlite> SELECT name FROM products WHERE on_sale = 'f';
+Teddy Bear
+Cat Ears
+Card Against Humanity
+Set of 12 Mason Jars
+
+--------------------------------------------------------------------------------------
+2. Selects the names of all products that cost less than £20.
+
+sqlite> SELECT name FROM products WHERE price < 20;
+Teddy Bear
+The Ruby Programming Language
+Silicon Valley Monopoly
+Set of 12 Mason Jars
+
+
+--------------------------------------------------------------------------------------
+3. Selects the name and price of the most expensive product.
+
+sqlite> SELECT name, price FROM products ORDER BY price DESC LIMIT 1;
+Cat Ears|99.99
+
+--------------------------------------------------------------------------------------
+4. Selects the name and price of the second most expensive product.
+
+sqlite> SELECT name, price From products ORDER BY price DESC LIMIT 1 OFFSET 1;
+Brown Leather Boots|82.0
+
+--------------------------------------------------------------------------------------
+5. Selects the name and price of the least expensive product.
+
+sqlite> SELECT name, price From products ORDER BY price ASC LIMIT 1;
+Set of 12 Mason Jars|6.22
+
+--------------------------------------------------------------------------------------
+6. Selects the names and prices of all products, ordered by price in descending order.
+
+sqlite> SELECT name, price From products ORDER BY price DESC;
+Cat Ears|99.99
+Brown Leather Boots|82.0
+Lonely Pillow|78.82
+Card Against Humanity|25.0
+Hoodie|25.0
+Set of silverware|22.99
+The Ruby Programming Language|19.99
+Teddy Bear|17.99
+Silicon Valley Monopoly|10.99
+Set of 12 Mason Jars|6.22
+
+--------------------------------------------------------------------------------------
+7. Selects the average price of all products.
+
+sqlite> SELECT AVG(price) AS AveragePrice FROM products;
+38.899
+
+--------------------------------------------------------------------------------------
+8. Selects the sum of the price of all products.
+
+sqlite> SELECT SUM(price) AS TotalPrice FROM products;
+388.99
+
+--------------------------------------------------------------------------------------
+9. Selects the sum of the price of all products whose prices is less than £20.
+
+sqlite> SELECT SUM(price) AS TotalPrice FROM products WHERE price < 20;
+55.19
+
+--------------------------------------------------------------------------------------
+10. Selects the id of the user with your name.
+
+sqlite> SELECT id FROM users WHERE name = "Nikolas Mantis";
+1
+
+--------------------------------------------------------------------------------------
+11. Selects the names of all users whose names start with the letter "A".
+
+sqlite> SELECT name FROM users WHERE name LIKE "A%" ORDER BY name;
+Andy Born
+
+--------------------------------------------------------------------------------------
+12. Selects the number of users whose first names are "Jonathan".
+
+sqlite> SELECT count(name) FROM users WHERE name LIKE "Jonathan%" ORDER BY name;
+2
+
+--------------------------------------------------------------------------------------
+13. Selects the number of users who want a "Teddy Bear".
+
+sqlite> SELECT COUNT(user_id) FROM wishlists INNER JOIN products ON products.id = wishlists.product_id WHERE products.name = "Teddy Bear"; 6
+
+--------------------------------------------------------------------------------------
+14. Selects the count of items on the wishlish of the user with your name.
+
+sqlite> SELECT COUNT(user_id) FROM wishlists INNER JOIN users ON users.id = wishlists.user_id WHERE users.name = "Nikolas Mantis";
+3
+
+--------------------------------------------------------------------------------------
+15. Selects the count and name of all products on the wishlist, ordered by count in descending order.
+
+sqlite> SELECT COUNT(products.id), name FROM products JOIN wishlists ON wishlists.product_id = products.id WHERE wishlists.product_id = products.id GROUP BY products.name ORDER BY COUNT(products.id) DESC;
+18|Hoodie
+16|Card Against Humanity
+15|Cat Ears
+9|The Ruby Programming Language
+6|Teddy Bear
+5|Silicon Valley Monopoly
+4|Brown Leather Boots
+2|Lonely Pillow
+2|Set of 12 Mason Jars
+
+--------------------------------------------------------------------------------------
+16. Selects the count and name of all products that are not on sale on the wishlist, ordered by count in descending order.
+
+sqlite> SELECT COUNT(products.id), name FROM products JOIN wishlists ON wishlists.product_id = products.id WHERE products.on_sale = 'f' GROUP BY name ORDER BY COUNT(products.id) DESC;
+16|Card Against Humanity
+15|Cat Ears
+6|Teddy Bear
+2|Set of 12 Mason Jars
+
+--------------------------------------------------------------------------------------
+17. Inserts a user with the name "Jonathan Postel" into the users table. Ensure the created_at column is set to the current time.
+
+sqlite> INSERT INTO users(name, created_at) VALUES("Jonathan Postel",datetime('now'));
+sqlite> select * from users;
+1|2013-04-01 20:09:41.926399|Nikolas Mantis
+2|2013-04-01 20:09:41.932863|Max Perchik
+3|2013-04-01 20:09:41.934730|Thomas Martin
+4|2013-04-01 20:09:41.936167|Krisztina Matyi
+5|2013-04-01 20:09:41.937655|Mark Randhawa
+6|2013-04-01 20:09:41.938977|Imran Sulemanji
+7|2013-04-01 20:09:41.940520|Issam Sultan
+8|2013-04-01 20:09:41.942043|Richill Tamakloe
+9|2013-04-01 20:09:41.943542|Clemens Kazda
+10|2013-04-01 20:09:41.945032|Nicolle Castro
+11|2013-04-01 20:09:41.946512|Tim Elder
+12|2013-04-01 20:09:41.947799|Paul Lainchbury
+13|2013-04-01 20:09:41.949360|Max Norton
+14|2013-04-01 20:09:41.951026|Andy Born
+15|2013-04-01 20:09:41.952509|Laurent Curau
+16|2013-04-01 20:09:41.954097|Livien Yin
+17|2013-04-01 20:09:41.955608|Eu-wen Ding
+18|2013-04-01 20:09:41.956888|Jonathan Colby
+19|2013-04-01 20:09:41.958401|Michelle Lowe
+20|2013-04-01 20:09:41.959834|Jonathan Chang
+21|2013-04-01 20:09:41.961268|Matt Cano
+23|2014-01-11 11:00:32|Jonathan Postel
+
+--------------------------------------------------------------------------------------
+18. Selects the id of the user with the name "Jonathan Postel"?  Ensure the created_at column is set to the current time.
+
+sqlite> SELECT id FROM users WHERE name = "Jonathan Postel";
+23
+
+--------------------------------------------------------------------------------------
+19. Inserts a wishlist entry for the user with the name "Jonathan Postel" for the product "The Ruby Programming Language".
+
+sqlite> SELECT id FROM users WHERE name = "Jonathan Postel";
+23
+sqlite> SELECT id FROM products WHERE name = "The Ruby Programming Language";
+4
+sqlite> INSERT INTO wishlists(created_at, user_id, product_id) VALUES (datetime('now'), 23, 4);
+sqlite> SELECT * FROM wishlists WHERE wishlists.user_id = 23;
+81|2014-01-11 11:08:48|23|4
+
+--------------------------------------------------------------------------------------
+20. Updates the name of the "Jonathan Postel" user to be "Jon Postel".
+
+sqlite> UPDATE users SET name = "Jon Postel" WHERE name = "Jonathan Postel";
+sqlite> SELECT * FROM users WHERE name = "Jon Postel";
+23|2014-01-11 11:00:32|Jon Postel
+sqlite> 
+
+--------------------------------------------------------------------------------------
+21. Deletes the user with the name "Jon Postel".
+
+sqlite> DELETE FROM users WHERE name = "Jon Postel";
+sqlite> SELECT * FROM users WHERE name = "Jon Postel";
+sqlite> SELECT * FROM users;
+1|2013-04-01 20:09:41.926399|Nikolas Mantis
+2|2013-04-01 20:09:41.932863|Max Perchik
+3|2013-04-01 20:09:41.934730|Thomas Martin
+4|2013-04-01 20:09:41.936167|Krisztina Matyi
+5|2013-04-01 20:09:41.937655|Mark Randhawa
+6|2013-04-01 20:09:41.938977|Imran Sulemanji
+7|2013-04-01 20:09:41.940520|Issam Sultan
+8|2013-04-01 20:09:41.942043|Richill Tamakloe
+9|2013-04-01 20:09:41.943542|Clemens Kazda
+10|2013-04-01 20:09:41.945032|Nicolle Castro
+11|2013-04-01 20:09:41.946512|Tim Elder
+12|2013-04-01 20:09:41.947799|Paul Lainchbury
+13|2013-04-01 20:09:41.949360|Max Norton
+14|2013-04-01 20:09:41.951026|Andy Born
+15|2013-04-01 20:09:41.952509|Laurent Curau
+16|2013-04-01 20:09:41.954097|Livien Yin
+17|2013-04-01 20:09:41.955608|Eu-wen Ding
+18|2013-04-01 20:09:41.956888|Jonathan Colby
+19|2013-04-01 20:09:41.958401|Michelle Lowe
+20|2013-04-01 20:09:41.959834|Jonathan Chang
+21|2013-04-01 20:09:41.961268|Matt Cano
+
+--------------------------------------------------------------------------------------
+22. Deletes the wishlist item for the user you just deleted.
+
+sqlite> DELETE FROM wishlists WHERE user_id NOT IN (SELECT id FROM users);
+sqlite> SELECT * FROM wishlists WHERE user_id = 23;
+sqlite> 
+
+--------------------------------------------------------------------------------------
+
+

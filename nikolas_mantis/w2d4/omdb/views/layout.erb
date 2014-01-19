@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <!-- <link rel='stylesheet' href='/reset.css'>  -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <title>OMDB</title>
+  </head>
+  
+    <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">OMDB</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li><a href='/'>Home</a></li>
+      <li><a href='/actors'>List of Actors</a></li>
+        <li><a href='/new_actor'>Create Actor</a></li>        
+        <li><a href='/movies'>List of Movies</a></li>
+    </ul>
+    
+    <ul class=" nav  navbar-right">
+      <form class="navbar-form navbar-left" action='/search_actors' method='post' role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search for actor" name='search_actors'>
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+
+
+    <%= yield %>
+
+
+
+
+
+
+    
+  
+  
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

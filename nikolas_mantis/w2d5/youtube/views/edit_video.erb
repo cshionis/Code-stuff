@@ -1,0 +1,11 @@
+<div class="container">
+  <form action='/update_video/<%=@edit_video['id']%>' method='post'>
+  <ul id='edit'>
+    <li><input type='text' name='title' value='<%=@edit_video['title']%>' autofocus></li>
+    <li><input type='text' name='genre' value='<%=@edit_video['genre']%>'></li>
+    <li><input type='text' name='url' value='<%=@edit_video['url']%>' ></li>
+    <li><textarea type='text' name='description'><%=@edit_video['description']%></textarea></li>
+  </ul>
+  <button>Edit</button>
+  </form>
+</div>

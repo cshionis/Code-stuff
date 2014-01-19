@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="my_text">
+
+<h2>Enter the film title below</h2>
+
+<form action='/find' method='get'>
+  <input type='text' name='movie' autofocus placeholder='Movie title'>
+  <button>Search</button>
+</form>
+
+</header>
+
+
+<section>
+
+
+  <% @movies.each do |movie| %>
+  <article>
+    <dl>
+      <dt>Movie:</dt>
+      <dd><%= movie['title'] %></dd>
+    </dl>
+    <dl>
+      <dt>Year :</dt>
+      <dd><%=movie['year']%></dd>
+    </dl>
+
+    <div class='clear_both'></div>
+
+
+  </article>
+
+
+
+  <% end %>
+
+</section>
+</div>
+</div>

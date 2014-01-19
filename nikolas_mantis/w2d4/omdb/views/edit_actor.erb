@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="my_text">
+
+<form action='/update_actor/<%=@edit_actor['id'] %>' method = 'post'>
+
+<dl>
+    <dt>
+      <label for='first_name'>First Name:</label>
+    </dt>
+    <dd>
+      <input id='first_name' type='text' name='first_name' value=<%=@edit_actor['first_name']%> autofocus>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>
+      <label for='last_name'>Last Name:</label>
+    </dt>
+    <dd>
+      <input id='last_name' type='text' name='last_name' value=<%=@edit_actor['last_name']%>>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>
+      <label for='dob'>Date of birth:</label>
+    </dt>
+    <dd>
+      <input id='dob' type='text' name='dob' value=<%=@edit_actor['dob']%>>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>
+      <label for='image'>Image URL:</label>
+    </dt>
+    <dd>
+      <input id='image' type='text' name='image' value=<%=@edit_actor['image']%>>
+    </dd>
+  </dl>
+
+
+  <button>Edit Task</button>
+
+</form>
+</div>
+</div>

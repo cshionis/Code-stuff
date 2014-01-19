@@ -1,0 +1,94 @@
+/* 
+
+## Style Hints: 
+
+Body Font Size = 12px
+	 Line Height = 17px
+	 Font Family = "Times New Roman", serif
+	 Font Color = #656565
+
+Link Hover Color = #20222a
+
+*/
+
+* {
+  -moz-box-sizing: border-box; /* Firexfox */
+  -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+  box-sizing: border-box; /* IE */
+}
+
+.clear{
+  clear:both;
+}
+
+/*Adjust appearance of body*/
+body{
+  font-family: "Times New Roman", serif; 
+  color: #656565;
+  line-height: 17px;
+  font-size: 12px;
+}
+
+/*Set the margin and center the body*/
+#container{
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Change the color of the date*/
+#date{
+  color: #ace0f8;
+}
+
+p {
+  text-align: justify;
+}
+
+/*Changes the color of "Read More" when hovering over it*/
+p a:hover{
+  color:#20222a;
+}
+
+/*Remove underline from link and change its color*/
+p a{
+  text-decoration: none;
+  color: blue;
+}
+
+/*Readjust the sixe of post images to the size of the body*/
+.post img{
+  max-width:940px;
+}
+
+header{
+  border: 20px;
+}
+
+/*Add the logo and hide the text of h1*/
+h1 a {
+  background: url('../images/brook-and-lyn-logo.gif') no-repeat;
+  border: 2px;
+  width: 179;
+  height: 29px;
+  margin:auto;
+  display: block;
+  /* image replacment technique */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*Add border, padding, and margin to the press images*/
+.image img{
+  border: 3px solid #DEDEDE;
+  padding: 1px;
+  margin: 1px;
+  /*max-width: 25%;*/
+  float: left;
+}
+
+/*Give some space to the footer for visibility*/
+footer{
+  padding: 10px;
+}

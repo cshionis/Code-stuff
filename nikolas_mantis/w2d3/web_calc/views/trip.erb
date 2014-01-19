@@ -1,0 +1,45 @@
+
+
+<% def mpg_utility(speed, mpg)
+    if speed > 60
+      mpg - ((speed - 60) * 2)
+    else
+      mpg
+    end
+  end
+%>
+
+<h3>Calculate the cost of your trip</h3>
+<form action='/trip' method='get'>
+  Enter distance:
+  <input type='text' name='distance'>
+  <br>
+  Enter mpg:
+  <input type='text' name='mpg'>
+  <br>
+  Enter price per gallon:
+  <input type='text' name='ppg'>
+  <br>
+  Enter speed:
+  <input type='text' name='speed'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+
+
+<% if @distance != nil && @mpg != nil && @ppg != nil && @speed != nil %>
+  <% if !@distance.empty? && !@mpg.empty? && !@ppg.empty? && !@speed.empty? %>
+    <% @distance = @distance.to_f %>
+    <% @mpg = @mpg.to_f %>
+    <% @ppg = @ppg.to_f %>
+    <% @speed = @speed.to_f %>
+    <% @mpg = mpg_utility(@speed, @mpg) %>
+    
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p>It will take you <%= (@distance/@speed).round(2) %> hours at a cost of £ <%= ((@distance/@mpg)*@ppg).round(2) %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="my_text">
+<section>
+  <article>
+    <dl>
+      <% @actor_by_id.each do |key, val| %>
+      <dt><%= key %>:</dt>
+      <dd><%= @actor_by_id[key] %></dd>
+      <% end %>
+    </dl>
+
+    <div>
+      <a href="/edit_actor/<%= @actor_by_id['id'] %>">Edit</a>
+    </div>
+    <div class="clear_both"></div>
+
+    <div>
+      <a href="/delete_actor/<%= @actor_by_id['id'] %>">Delete</a>
+    </div>
+    <div class="clear_both"></div>
+
+  </article>
+</section>
+</div>
+</div>

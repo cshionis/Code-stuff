@@ -1,0 +1,47 @@
+
+
+
+<h3>Calculate the nth power of a number</h3>
+<form action='/calc_advanced' method='get' id = 'power'>
+  Enter a number:
+  <input type='text' name='num'>
+  <br>
+  Enter the power:
+  <input type='text' name='power'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+
+
+<% if @num != nil && @power != nil %>
+  <% if !@num.empty? && !@power.empty? %>
+    <% @num = @num.to_f %>
+    <% @power = @power.to_f %>
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p><%= @num %> to the power of <%= @power %> is <%= @num**@power %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>
+
+<h3>Calculate the square root of a number</h3>
+<form action='/calc_advanced' method='get' id = 'sqrt'>
+  Enter a number to get its square root:
+  <input type='text' name='num_sqrt'>
+  <input type='submit' value='Calculate!'>
+</form>
+
+<% if @num_sqrt != nil %>
+  <% if !@num_sqrt.empty? %>
+    <% @num_sqrt = @num_sqrt.to_f %>
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p>The square root of <%= @num_sqrt %> is <%= Math.sqrt(@num_sqrt) %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>
+

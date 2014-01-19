@@ -1,0 +1,48 @@
+
+
+<div class="container">
+  <div class="my_text">
+<h2>List of all actors</h2>
+
+<!-- <form action='/search_actors' method='get'>
+  <input type='text' name='actor' autofocus placeholder='Enter an Actor'>
+  <button>Search</button>
+</form> -->
+
+</header>
+
+
+<section>
+
+  <!-- <form action='/search_actors' method='post'>
+    <input id='search_actors' type='text' name='search_actors' placeholder="Enter search value" autofocus>
+    <button>Search</button>
+  </form>
+  <br><br>
+  <h3><a href="/new_actor">Create New Actor</a></h3> -->
+
+  <% @actors.each do |actor| %>
+  <article>
+    
+    <dl>
+      <% actor.each do |key, val| %>
+      <dt><%= key %>:</dt>
+      <dd><%= actor[key] %></dd>
+      <% end %>
+    </dl>
+    <h3><a href="/show_actor/<%= actor['id'] %>">Details</a></h3>
+    
+    
+    <div class='clear_both'></div>
+
+
+  </article>
+
+
+
+  <% end %>
+
+</section>
+</div>
+
+</div>

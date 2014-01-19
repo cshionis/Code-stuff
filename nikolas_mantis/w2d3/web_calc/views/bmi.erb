@@ -1,0 +1,50 @@
+
+
+<h3>Calculate BMI in Metric System</h3>
+<form action='/bmi' method='get'>
+  Enter your weight in Kg:
+  <input type='text' name='weight_kg'>
+  <br>
+  Enter your height in Meters:
+  <input type='text' name='height_kg'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+
+
+<% if @weight_kg != nil && @height_kg != nil %>
+  <% if !@weight_kg.empty? && !@height_kg.empty? %>
+    <% @weight_kg = @weight_kg.to_f %>
+    <% @height_kg = @height_kg.to_f %>
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p>Your BMI is <%= (@weight_kg/(@height_kg**2)).round(2) %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>
+
+<h3>Calculate BMI in Imperial System</h3>
+<form action='/bmi' method='get'>
+  Enter your weight in pounds:
+  <input type='text' name='weight_p'>
+  <br>
+  Enter your height in inches:
+  <input type='text' name='height_p'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+<!-- ((@weight_p/(@height_p**2))**703).round(2) -->
+<% if @weight_p != nil && @height_p != nil %>
+  <% if !@weight_p.empty? && !@height_p.empty? %>
+    <% @weight_p = @weight_p.to_f %>
+    <% @height_p = @height_p.to_f %>
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p>Your BMI is <%= ((@weight_p/(@height_p**2))*703).round(2) %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+
+
+
+<h3>A simple calculator for you</h3>
+<form action='/calc' method='get'>
+  Enter first number:
+  <input type='text' name='first'>
+  <br>
+  Enter operator:
+  <input type='text' name='operator'>
+  <br>
+  Enter second number:
+  <input type='text' name='second'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+
+<% if @result %>
+  <section>
+  <header>
+    <h1>Result</h1>
+    <p>The result of <%= @first %> <%= @operator %> <%= @second %> is <%= @result %>
+    </p>
+  </header>
+  </section>
+<% end %>

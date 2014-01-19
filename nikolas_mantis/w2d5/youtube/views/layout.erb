@@ -1,0 +1,41 @@
+
+<html lang='en'>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/reset.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Freckle+Face' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+  <title>VEEDEO MAN</title>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/"><span>VeedeoMan</span></a></li>
+    <li><a href="/new_video">Add Video</a></li>
+    <li><a href='/'>Categories</a>
+      <ul>
+        <% @genres.each do |g| %>
+          <li><a href="/show_genre/<%=g['genre']%>"><%=g['genre']%></a></li>
+        <% end %>
+      </ul>
+    </li>
+    <li id='right-nav'>
+      <form id='search' action = '/' method='post'>
+        <input type='text' name='search_videos'>
+        <button>Search</button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+<h1>Your favorite videos, in one place.</h1>
+<hr>
+
+<%= yield %>
+
+
+
+</body>
+</html>

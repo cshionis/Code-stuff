@@ -1,0 +1,188 @@
+* {
+  -moz-box-sizing: border-box; /* Firexfox */
+  -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+  box-sizing: border-box; /* IE */
+}
+
+body {
+  font-family: 'Helvetica', san-serif;
+  /*background-image:url('pg1.png');*/
+  /*background-color: white;*/
+  background-size: cover;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.container{
+  max-width: 940px;
+  margin: 0 auto;
+  margin-top: 65px;
+  color: #7b7b7d;
+}
+
+nav li span{
+  font-family: 'Audiowide', cursive;
+  font-size: 30px;
+  color: red;
+}
+
+input{
+  height: 30px;
+  width: 300px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+button{
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 31px;
+  width: 100px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+button span{
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited{
+  color:blue;
+}
+
+nav a:visited{
+  color:white;
+}
+
+nav a{
+  color: white;
+}
+
+nav a:hover{
+  color: #ec7707;
+}
+
+.vid{
+  float:left;
+  margin: 5px;
+}
+
+textarea{
+  height: 60px;
+  width: 300px;  
+}
+
+.options{
+  display: inline;
+  margin-top: 40px;
+}
+
+.options span{
+  margin-right: 10px;
+  margin-top: 40px;
+}
+
+nav {
+  text-transform : uppercase;
+  background-color: black;
+  padding: 10px 4px 5px 0;
+  margin-bottom: 30px;
+  opacity:0.7;
+} 
+
+nav ul{
+list-style-type:none;
+/*padding:10px;*/
+text-align: left;
+}
+
+nav ul li{
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  margin: 10px;
+  font-size: 20px;
+  font-family: 'Audiowide', cursive;
+}
+nav ul li:visited{
+  color: white;
+}
+
+nav ul li ul{
+  padding: 0;
+  position: absolute;
+/*  top: 48px;*/
+  left: 0;
+  width: 250px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  padding: 15px 20px;
+  background: #000;
+}
+
+nav ul li ul li{
+
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+
+nav ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+#edit li{
+ /* text-align: center;*/
+  margin: 10px;
+}
+
+#add li{
+  margin: 10px;
+}
+
+button{
+  margin-bottom: -5px;
+  font-size: 16px;
+  border: solid 2px #CCC;
+}
+
+button:hover{
+  background-color: #ec7707;
+}
+
+#right-nav{
+  float: right;
+  margin-top: 18px; 
+}
+
+h1{
+  border-top: 30px;
+  font-family: 'Audiowide', cursive;
+  font-size: 25px;
+  text-shadow: 1px 1px #7b7b7d;
+}
+
+hr{
+  max-width: 940px;
+}
+
+
+
+
+
+
+
+
+

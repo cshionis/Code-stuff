@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Web-Calc</title>
+
+  <link rel='stylesheet' href='/style.css'>
+
+</head>
+<body>
+  <div id="container">
+  <h1>Web-Calc online!</h1>
+<nav>
+  <ul id="ul_nav">
+    <li><a href='/'>Home</a></li>
+    <li><a href='/calc'>Simple Calculator</a></li>
+    <li><a href='/calc_advanced'>Advanced Calculator</a></li>
+    <li><a href='/mortgage'>Mortgage Calculator</a></li>
+    <li><a href='/bmi'>BMI Calculator</a></li>
+    <li><a href='/trip'>Trip Calculator</a></li>
+  </ul>
+</nav>
+
+
+  <%= yield %>
+  </div>
+</body>
+</html>

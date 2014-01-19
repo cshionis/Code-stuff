@@ -1,0 +1,13 @@
+<div class="container">
+  <%@videos_by_genre.each do |video|%>
+  <div class='vid'>
+    <ul>
+      <li><%=video['title']%></li>
+      <li>
+        <iframe width="210" height="155" src="//www.youtube.com/embed/<%=video['url']%>" frameborder="0" allowfullscreen></iframe>
+      </li>
+      <li><a href="/show_video/<%= video['id'] %>">More Info</a></li>
+    </ul>
+  </div>
+  <%end%>
+</div>

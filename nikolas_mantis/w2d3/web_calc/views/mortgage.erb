@@ -1,0 +1,31 @@
+
+
+<h3>Calculate the monthly mortgage payments</h3>
+<form action='/mortgage' method='get'>
+  Enter principal amount:
+  <input type='text' name='principal'>
+  <br>
+  Enter the yearly interest rate:
+  <input type='text' name='interest'>
+  <br>
+  Enter number of payments:
+  <input type='text' name='payments'>
+  <br>
+  <input type='submit' value='Calculate!'>
+</form>
+
+<% if @principal != nil && @interest != nil && @payments != nil %>
+  <% if !@principal.empty? && !@interest.empty? && !@payments.empty? %>
+    <% @principal = @principal.to_f %>
+    <% @interest = @interest.to_f %>
+    <% @payments = @payments.to_f %>
+    <% @interest = @interest/100/12 %>
+    <% @x = (1+@interest)**@payments %>
+    <section>
+    <header>
+      <h1>Result</h1>
+      <p>Your monthly payment is £<%= (@principal*@interest*@x/(@x-1)).round(2) %></p>
+    </header>
+    </section>
+  <% end %>
+<% end %>
